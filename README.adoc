@@ -1,6 +1,7 @@
 AsciiDocを書くテスト
-- list
-  - list
+
+* list
+  * list
   
 [source,c++]
 ----
