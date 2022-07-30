@@ -9,6 +9,9 @@ AsciiDocを書くテスト
 * list3
 ** list3
 
+* list4
+** list4
+
 [source,c++]
 ----
 std:cout << "Hello, world!" << std:endl;
