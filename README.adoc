@@ -2,6 +2,9 @@ AsciiDocを書くテスト
 
 * list
 ** list
+
+* list2
+** list2
   
 [source,c++]
 ----
