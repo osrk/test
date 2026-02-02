@@ -1,0 +1,33 @@
+name: Export draw.io diagrams
+on:
+  push:
+    paths:
+      - '**.drawio'
+
+jobs:
+  drawio-export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Export drawio files to svg
+        uses: rlespinasse/drawio-export-action@v2
+        with:
+          path: . # 変換対象のディレクトリ
+          format: svg
+          transparent: true
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git diff --staged --quiet || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and Push changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git commit -m "chore: auto-generate svg from draw.io [skip ci]"
+          git push
