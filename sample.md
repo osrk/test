@@ -1,3 +1,3 @@
 # sample
 
-![図](export/sample.svg)
+![図](fig/sample.svg)
