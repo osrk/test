@@ -19,6 +19,8 @@ jobs:
           path: . # 変換対象のディレクトリ
           format: svg
           transparent: true
+          output: export
+          remove-page-suffix: true
 
       - name: Check for changes
         id: git-check
